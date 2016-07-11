@@ -1,0 +1,19 @@
+{
+	"name": "vrakita/distance",
+	"description": "Distance calculator with different methods",
+	"authors": [
+		{
+			"name": "Vladimir Rakita",
+			"email": "vrakita@yahoo.com"
+		}
+	],
+	"minimum-stability": "dev",
+	"require": {
+
+	},
+	"autoload": {
+		"psr-0": {
+			"Distance": "src/"
+		}
+	}
+}
