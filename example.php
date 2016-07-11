@@ -4,15 +4,23 @@ require __DIR__ . '/vendor/autoload.php';
 
 use Distance\Range;
 
-$test = Range::inRange(['lat' => '45.251924', 'lon' => '19.837043'], ['lat' => '53.185004', 'lon' => '8.705415'], 2388);
+// Current position
+$position 		= ['lat' => '45.251924', 'lon' => '19.837043'];
 
-echo $test ? 'Yes' : 'No';
+// Destination
+$destination 	= ['lat' => '53.185004', 'lon' => '8.705415'];
 
-// 45.5449829
-// 19.7531777
+// Radius in kilometers
+$destinationRadius = 2500;
 
-// 45.5403136
-// 19.8419346 45.540329, 19.841934 45.540223, 19.841151
+// Test to see is current position in range of destination base ond destination radius
+$test = Range::inRange($position, $destination, $destinationRadius);
 
-// 45.540486, 19.842128
-// 45.540795, 19.838351
+echo 'Is in range: ' .  ($test ? 'Yes' : 'No');
+
+// Calculate distance between current position and destination
+$distance = Distance\DistanceFactory::calculate(new \Distance\Drivers\GeoDataSource, $position, $destination);
+
+echo '<br>';
+
+echo $distance;
