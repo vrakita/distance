@@ -17,6 +17,9 @@ class GeoDataSource implements Method {
 		$theta = $location1['lon'] - $location2['lon'];
 		$dist = sin(deg2rad($location1['lat'])) * sin(deg2rad($location2['lat'])) +  cos(deg2rad($location1['lat'])) * cos(deg2rad($location2['lat'])) * cos(deg2rad($theta));
 		$dist = acos($dist);
+
+		if(is_nan($dist)) return 0;
+
 		$dist = rad2deg($dist);
 
 		$miles = $dist * 60 * 1.1515;

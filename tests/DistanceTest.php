@@ -37,4 +37,30 @@ class DistanceTest extends PHPUnit_Framework_TestCase {
 
 	}
 
+	public function test_calculating_same_location() {
+        $position 		= ['lat' => '45.255462', 'lon' => '19.828439'];
+        $destination 	= ['lat' => '45.255462', 'lon' => '19.828439'];
+
+        $distance = DistanceFactory::calculate(new \Distance\Drivers\GeoDataSource, $position, $destination);
+
+        $this->assertEquals(0, $distance);
+    }
+
+    public function test_calculating_same_location_different_data_type() {
+        $position 		= ['lat' => '45.255462', 'lon' => '19.828439'];
+        $destination 	= ['lat' => 45.255462, 'lon' => 19.828439];
+
+        $distance = DistanceFactory::calculate(new \Distance\Drivers\GeoDataSource, $position, $destination);
+
+        $this->assertEquals(0, $distance);
+
+        $position 	        = ['lat' => 45.255462, 'lon' => 19.828439];
+        $destination 		= ['lat' => '45.255462', 'lon' => '19.828439'];
+
+
+        $distance = DistanceFactory::calculate(new \Distance\Drivers\GeoDataSource, $position, $destination);
+
+        $this->assertEquals(0, $distance);
+    }
+
 }

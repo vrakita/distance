@@ -13,7 +13,7 @@ class InRangeTest extends PHPUnit_Framework_TestCase {
 		// Google maps calculates 1194
 		$distance = ceil(DistanceFactory::calculate(new \Distance\Drivers\GeoDataSource, $position, $destination));
 
-		
+
 
 		$this->assertTrue(Range::inRange($position, $destination, 1194));
 		$this->assertTrue(Range::inRange($position, $destination, 5000));
@@ -28,7 +28,7 @@ class InRangeTest extends PHPUnit_Framework_TestCase {
 		// Google maps calculates 1194
 		$distance = ceil(DistanceFactory::calculate(new \Distance\Drivers\GeoDataSource, $position, $destination));
 
-		
+
 
 		$this->assertFalse(Range::inRange($position, $destination, 1193));
 		$this->assertFalse(Range::inRange($position, $destination));
