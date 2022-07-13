@@ -1,9 +1,10 @@
 <?php
 
+use PHPUnit\Framework\TestCase;
 use Distance\DistanceFactory;
 use Distance\Range;
 
-class InRangeTest extends PHPUnit_Framework_TestCase {
+class InRangeTest extends TestCase {
 
 	public function test_return_true_if_is_in_range() {
 

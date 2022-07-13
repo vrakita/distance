@@ -1,9 +1,11 @@
 <?php
 
+use PHPUnit\Framework\TestCase;
 use Distance\DistanceFactory;
 
 
-class DistanceTest extends PHPUnit_Framework_TestCase {
+
+class DistanceTest extends TestCase {
 
 	public function test_calculating_valid_long_distance() {
 
